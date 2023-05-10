@@ -4,6 +4,6 @@
 You can contact me via [telegram](https://Zeezizix.t.me/) or [ВКонтакте](https://vk.com/sccdxd).\
 ## My Skills
 ##### Languages
-![Languages](https://skillicons.dev/icons?i=cs,cpp,py,java,js,kotlin&theme=light)
+![Languages](https://skillicons.dev/icons?i=cs,cpp,py,java,js&theme=dark)
 ##### Tools
-![Tools](https://skillicons.dev/icons?i==git,github,gradle&theme=light)
+![Tools](https://skillicons.dev/icons?i==git,github&theme=dark)
