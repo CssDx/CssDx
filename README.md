@@ -6,4 +6,4 @@ You can contact me via [telegram](https://Zeezizix.t.me/) or [ВКонтакте
 ##### Languages
 ![Languages](https://skillicons.dev/icons?i=cs,cpp,py,js&theme=dark)
 ##### Tools
-![Tools](https://skillicons.dev/icons?i==git,github&theme=light)
+![Tools](https://skillicons.dev/icons?i=git,github&theme=light)
