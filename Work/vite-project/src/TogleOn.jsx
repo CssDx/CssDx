@@ -30,8 +30,10 @@ import { green } from '@mui/material/colors'
 
 
 function RegistrationOn() {
+
   const [Email, SetEmail] = useState('')
   const [Role, SetRole] = useState('')
+
   const Create = e => {
     e.preventDefault()
     console.log({Email, Role})
@@ -61,30 +63,27 @@ function RegistrationOn() {
          sx={{ p: 2, border: 1, borderRadius: 1, borderColor: 'text.primary' }}
     >
       <Stack direction='row' alignItems="center" spacing={2}>
-    
-      <FormControl fullWidth>
-        <InputLabel> Роль </InputLabel>
-          <Select
-            id="select" 
-            value={Role}
+        <FormControl fullWidth>
+          <InputLabel> Роль </InputLabel>
+            <Select
+              id="select" 
+              value={Role}
+              variant="outlined"
+              label="Role"
+              onChange={e => SetRole(e.target.value)}
+            >
+              <MenuItem value='Admin'>Администратор</MenuItem>
+              <MenuItem value='Master'>Мастер</MenuItem>
+            </Select>
+          </FormControl>
+          <TextField fullWidth
+            label="Электронная почта"
+            value={Email}
             variant="outlined"
-            label="Role"
-            onChange={e => SetRole(e.target.value)}
-          >
-            <MenuItem value='Admin'>Администратор</MenuItem>
-            <MenuItem value='Master'>Мастер</MenuItem>
-          </Select>
-        </FormControl>
-        <TextField fullWidth
-          label="Электронная почта"
-          value={Email}
-          variant="outlined"
-          onChange={e => SetEmail(e.target.value)}
-        />
-        </Stack>
-      
-        <ColorButton variant='outlined' onClick={Create}> Добавить </ColorButton>
-      
+            onChange={e => SetEmail(e.target.value)}
+          />
+          </Stack>
+            <ColorButton variant='outlined' onClick={Create}> Добавить </ColorButton>
     </Box>
   )
 }

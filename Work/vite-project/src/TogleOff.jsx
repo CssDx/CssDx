@@ -36,6 +36,7 @@ function RegistrationOff() {
   const [Surname, SetSurname] = useState('')
   const [PhoneNumber, SetPhone] = useState('')
   const [Role, SetRole] = useState('');
+
   const Create = e => {
     e.preventDefault()
     console.log({Email, Name, Surname, PhoneNumber, Role})
@@ -56,74 +57,59 @@ function RegistrationOff() {
     marginTop: 30,
     marginLeft: 390,
   }));
+
   return (
     <Box component="span" 
         height={300}
          width={760}
          sx={{ p: 2, border: 1, borderRadius: 1, borderColor: 'text.primary' }}
     >
-    <Stack direction='row' alignItems="center" spacing={2} padding={1}>
-    
+      <Stack direction='row' alignItems="center" spacing={2} padding={1}>
           <FormControl fullWidth>
-           
             <InputLabel>Роль</InputLabel>
-            
-            <Select
-              
-              variant="outlined"
-              id="select" 
-              value={Role}
-              label="Role"
-              onChange={e => SetRole(e.target.value)}
-            >
-              <MenuItem value='Admin'>Администратор</MenuItem>
-              <MenuItem value='Master'>Мастер</MenuItem>
-            </Select>
-            
+              <Select
+                      variant="outlined"
+                      id="select" 
+                      value={Role}
+                      label="Role"
+                      onChange={e => SetRole(e.target.value)}
+              >
+                <MenuItem value='Admin'>Администратор</MenuItem>
+                <MenuItem value='Master'>Мастер</MenuItem>
+              </Select>
           </FormControl>
-       
-          <TextField fullWidth
-            label="Электронная почта"
-            value={Email}
-            variant="outlined"
-            onChange={e => SetEmail(e.target.value)}
+          <TextField  fullWidth
+                      label="Электронная почта"
+                      value={Email}
+                      variant="outlined"
+                      onChange={e => SetEmail(e.target.value)}
 
           />
-       
         </Stack>
-
         <Stack direction='row' alignItems="center" spacing={2} padding={1}>
-       
-          <TextField fullWidth
-            label="Имя"
-            value={Name}
-            variant="outlined"
-            onChange={e => SetName(e.target.value)}
+          <TextField  fullWidth
+                      label="Имя"
+                      value={Name}
+                      variant="outlined"
+                      onChange={e => SetName(e.target.value)}
           />
-     
-
-     
-          <TextField fullWidth
-            label="Фамилия"
-            value={Surname}
-            variant="outlined"
-            onChange={e => SetSurname(e.target.value)}
+          <TextField  fullWidth
+                      label="Фамилия"
+                      value={Surname}
+                      variant="outlined"
+                      onChange={e => SetSurname(e.target.value)}
           />
-   
         </Stack>
         <Stack padding={1} width={365}>
-  
           <TextField
-            label="Телефон"
-            value={PhoneNumber}
-            variant="outlined"
-            onChange={e => SetPhone(e.target.value)}
+                    label="Телефон"
+                    value={PhoneNumber}
+                    variant="outlined"
+                    onChange={e => SetPhone(e.target.value)}
           /> 
         </Stack>
         <ColorButton variant='outlined' onClick={Create}> Создать и добавить </ColorButton>
-   
   </Box>
-    
   )
 }
   

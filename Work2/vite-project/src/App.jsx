@@ -25,6 +25,9 @@ import List from '@mui/material/List';
 import MenuItem from '@mui/material/MenuItem';
 
 import Divider from '@mui/material/Divider';
+import { DesktopTimePicker } from '@mui/x-date-pickers/DesktopTimePicker';
+
+
 
 import FormControlLabel from '@mui/material/FormControlLabel';
 
@@ -34,20 +37,20 @@ import { ArrowLeftIcon } from '@mui/x-date-pickers';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 import handleChange from './TheSwitch'
-function TSwitch(event){
-  const [checked, setChecked] = React.useState(true) 
-  setChecked(event.target.checked);
-  console.log(event.target.checked)
-}
 
 
 function DateOfWorking() {
-  
 
+  const ClickWeek = (e, id) =>{
+    e.preventDefault()
+    console.log(id)
+  }
+
+  
   const [value, setValue] = React.useState(dayjs('9:00'))
 
   const[checked, setChecked] = useState(true) 
-
+  const [IdDay, SetId] = useState('')
 
   const SwitchColorGreen = styled((props) => (
     <Switch {...label} defaultChecked />
@@ -60,77 +63,70 @@ function DateOfWorking() {
   const Item4 = styled('div')(({ theme }) => ({
     padding: theme.spacing(3),
     textAlign: 'center',
-    width: 250,
+    width: 210,
     elevatiot: 0,
     fontWeight: 'bold',
   }));
+
   const Item3 = styled('div')(({ theme }) => ({
     padding: theme.spacing(3),
     alignItems: 'center',
     width: 250,
     elevatiot: 0,
     fontWeight: 'bold',
-    paddingLeft: 110,
+    paddingLeft: 40,
   }));
 
   const TheRight = styled('div')(({theme}) => ({
-    textAlign: 'end',
-    padding: 4,
+    alignItems: 'end',
+    paddingLeft: 900,
   }))
-  const Icone = () => {
-    return(
-      <Icon path={mdiMenuDown} size={1} />
-    )
-  }
+
 return(
-    <Box>
+    <Box  maxWidth={990} bgcolor = 'background.paper'>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Stack direction='row' spacing={1}>
-          <Item4> День недели</Item4>
-          <Item4> Время открытия</Item4>
-          <Item4> Время закрытия</Item4>
+          <Item4> День недели </Item4>
+          <Item4  > Время открытия </Item4>
+          <Item4> Время закрытия </Item4>
           <Item4> Работаем в этот день </Item4>
         </Stack>
-          {[{id: 1, date: 'Понедельник'}, 
-          {id : 2, date: 'Вторник'}, 
-          {id : 3, date: 'Среда'}, 
-          {id : 4, date : 'Четверг'}, 
-          {id : 5, date : 'Пятница'}, 
-          {id : 6, date : 'Суббота'}, 
-          {id : 7, date: 'Воскресенье'}].map((items)  =>{
-          return(
-        
-            <Stack direction='row' spacing={7} rx={5}>
-              <Item4 key={items.id} > {items.date} </Item4>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DemoContainer components={['TimePicker', 'TimePicker']}>
-                  <MobileTimePicker
-                                  defaultValue={dayjs('2022-04-17T15:30')}
-                                  ampm={false}
-                                  rightArrowIcon={ArrowDropDownIcon}
-                  />
-                </DemoContainer>
-              </LocalizationProvider>
-
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DemoContainer components={['TimePicker', 'TimePicker']}>
-              
-                  <MobileTimePicker
-                                  defaultValue={dayjs('2022-04-17T15:30')}
-                                  ampm={false}
-                  >
-                  </MobileTimePicker>
-              
-                </DemoContainer>
-              </LocalizationProvider>
-            <Item3>
-            <Switch onClick={handleChange}/>
-            </Item3>
-            </Stack>
-   
-            
-)})}
-    </Grid>
+          {[ 
+            {id : 1, date : 'Понедельник'}, 
+            {id : 2, date : 'Вторник'}, 
+            {id : 3, date : 'Среда'}, 
+            {id : 4, date : 'Четверг'}, 
+            {id : 5, date : 'Пятница'}, 
+            {id : 6, date : 'Суббота'}, 
+            {id : 7, date : 'Воскресенье'}].map((items)  => {
+              return(
+                <Stack direction='row' spacing={7} rx={5}>
+                  <Item4 key={items.id}> {items.date} </Item4>
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <DemoContainer components={['TimePicker', 'TimePicker']}>
+                        <DesktopTimePicker
+                                          defaultValue={dayjs('2022-04-17T15:30')}
+                                          ampm={false}             
+                        />
+                      </DemoContainer>
+                    </LocalizationProvider>
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <DemoContainer components={['TimePicker', 'TimePicker']}>
+                        <MobileTimePicker
+                                        defaultValue={dayjs('2022-04-17T15:30')}
+                                        ampm={false}
+                        />
+                      </DemoContainer>
+                    </LocalizationProvider>
+                      <Item3>
+                        <Switch onChange={id => ClickWeek} onClick={handleChange}/>
+                      </Item3>
+                </Stack>
+            )})}
+            <TheRight>
+              <Button color="success" variant="contained" onClick={ClickWeek}> Сохранить </Button>
+            </TheRight>
+      </Grid>
     </Box>
 )
 }

@@ -37,16 +37,18 @@ const TogleOnOff = () => {
     const [Surname, SetSurname] = useState('')
     const [PhoneNumber, SetPhone] = useState('')
     const [Name, SetName] = useState('')
+
     const Create = e => {
     e.preventDefault()
     console.log({Email, Role, Surname, PhoneNumber, Name})
-  }
-  const Item = styled(Paper)(({ theme }) => ({
-    textAlign: '',
-    height: 130,
-    width: 760,
-    elevatiot: 8,
-  }));
+    }
+
+    const Item = styled(Paper)(({ theme }) => ({
+        textAlign: '',
+        height: 130,
+        width: 760,
+        elevatiot: 8,
+    }));
  
     const [OnOff, SetTogle] = useState(false);
     const Togle = () => {
@@ -58,13 +60,13 @@ const TogleOnOff = () => {
         setChecked(event.target.checked);   
         console.log(!checked)
     }
+
     return(
         <Box>
             <Stack direction='column'>
-            <FormControlLabel control={<Switch/>} label="Сотрудник уже зарегестрировался" onClick={handleChange}/>
-                {(checked==false)?(<div><FormControl fullWidth size='small' ><InputLabel>Включите, если сотрудник уже зарегестрировался в системе самостоятельно</InputLabel></FormControl></div>):(<div><InputLabel>Выключите, если сотрудник еще не зарегестрировался</InputLabel></div>)}
-                {(checked==true)?(<RegistrationOn />):(<RegistrationOff />)}
-                
+                <FormControlLabel control={<Switch/>} label="Сотрудник уже зарегестрировался" onClick={handleChange}/>
+                    {(checked==false)?(<div><FormControl fullWidth size='small' ><InputLabel>Включите, если сотрудник уже зарегестрировался в системе самостоятельно</InputLabel></FormControl></div>):(<div><InputLabel>Выключите, если сотрудник еще не зарегестрировался</InputLabel></div>)}
+                    {(checked==true)?(<RegistrationOn />):(<RegistrationOff />)}
             </Stack>
         </Box>
     )
