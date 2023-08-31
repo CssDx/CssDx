@@ -46,20 +46,16 @@ function DateOfWorking() {
 
   const [value, setValue] = React.useState(dayjs('9:00'))
 
-  const [checked, setChecked] = React.useState(true)
-  const handleChange = (event) =>{
-  setChecked(event.target.checked);
-  console.log(event.target.checked)
-  }
-  
+  const[checked, setChecked] = useState(true) 
 
-  
 
   const SwitchColorGreen = styled((props) => (
     <Switch {...label} defaultChecked />
     ))
 
-  
+  const Relog = () => (
+    console.log(items.id)
+  )
 
   const Item4 = styled('div')(({ theme }) => ({
     padding: theme.spacing(3),
@@ -95,11 +91,17 @@ return(
           <Item4> Время закрытия</Item4>
           <Item4> Работаем в этот день </Item4>
         </Stack>
-          {['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'].map(DateOfWorking =>{
+          {[{id: 1, date: 'Понедельник'}, 
+          {id : 2, date: 'Вторник'}, 
+          {id : 3, date: 'Среда'}, 
+          {id : 4, date : 'Четверг'}, 
+          {id : 5, date : 'Пятница'}, 
+          {id : 6, date : 'Суббота'}, 
+          {id : 7, date: 'Воскресенье'}].map((items)  =>{
           return(
-           
+        
             <Stack direction='row' spacing={7} rx={5}>
-              <Item4 key={shortid.generate()}> {DateOfWorking} </Item4>
+              <Item4 key={items.id} > {items.date} </Item4>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DemoContainer components={['TimePicker', 'TimePicker']}>
                   <MobileTimePicker

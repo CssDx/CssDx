@@ -55,12 +55,13 @@ function RegistrationOn() {
   }));
 
   return (
-    <div>
-      
-     <Item>
+    <Box component="span" 
+        height={300}
+         width={760}
+         sx={{ p: 2, border: 1, borderRadius: 1, borderColor: 'text.primary' }}
+    >
       <Stack direction='row' alignItems="center" spacing={2}>
-      
-
+    
       <FormControl fullWidth>
         <InputLabel> Роль </InputLabel>
           <Select
@@ -82,9 +83,9 @@ function RegistrationOn() {
         />
         </Stack>
       
-        <ColorButton variant='outlined'> Добавить </ColorButton>
-      </Item>
-    </div>
+        <ColorButton variant='outlined' onClick={Create}> Добавить </ColorButton>
+      
+    </Box>
   )
 }
   
