@@ -92,16 +92,16 @@ return(
           <Item4> Работаем в этот день </Item4>
         </Stack>
           {[ 
-            {id : 1, date : 'Понедельник'}, 
-            {id : 2, date : 'Вторник'}, 
-            {id : 3, date : 'Среда'}, 
-            {id : 4, date : 'Четверг'}, 
-            {id : 5, date : 'Пятница'}, 
-            {id : 6, date : 'Суббота'}, 
-            {id : 7, date : 'Воскресенье'}].map((items)  => {
+            'Понедельник', 
+            'Вторник', 
+            'Среда', 
+            'Четверг', 
+            'Пятница', 
+            'Суббота', 
+            'Воскресенье'].map((items, index)  => {
               return(
-                <Stack direction='row' spacing={7} rx={5}>
-                  <Item4 key={items.id}> {items.date} </Item4>
+                <Stack key={index} direction='row' spacing={7} rx={5}>
+                  <Item4> {items} </Item4>
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                       <DemoContainer components={['TimePicker', 'TimePicker']}>
                         <DesktopTimePicker
